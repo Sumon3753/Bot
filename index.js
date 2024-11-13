@@ -2,7 +2,7 @@ const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const axios = require('axios'); // You need to install axios for API calls
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.DirectMessages] });
 const TOKEN = 'bot token'; // Replace with your actual bot token
-const PREFIX= '!'; // Set your desired prefix here (empty for no prefix)
+const PREFIX = '!'; // Set your desired prefix here (empty for no prefix)
 const allowedUserIDs = ['USER_ID_1', 'USER_ID_2']; // Add the User IDs here
 const allowedRoleIDs = ['ROLE_ID_1', 'ROLE_ID_2']; // Add the Role IDs here
 
@@ -473,4 +473,4 @@ setInterval(() => {
     console.log("This message is printed every 5 seconds.");
 }, 5000);
 
-client.login(TOKEN); // Log in to Discord with your bot token
+client.login('TOKEN'); // Log in to Discord with your bot token
