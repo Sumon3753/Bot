@@ -26,7 +26,8 @@ client.on('ready', () => {
         }],
         afk: false,
     });
-
+const statusMessages = ["**being coded by imanoobguy**"];
+    
     // Set custom status with Bangladesh flag
     client.user.setPresence({
         activities: [{
