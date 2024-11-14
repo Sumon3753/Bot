@@ -98,11 +98,10 @@ client.on('messageCreate', async (message) => {
 
     // Command: say [message]
 if (content === `${PREFIX}say` || content.startsWith(`${PREFIX}say `)) {
-    // Ensure the command is exactly "say" and not "sayembedchannel" or "sayembed"
     if (!content.startsWith(`${PREFIX}sayembedchannel`) && !content.startsWith(`${PREFIX}sayembed`)) {
         
-        // Check if the user has the specified role or is the specified user
-        if (message.member.roles.cache.has(roleId) || message.author.id === userId) {
+        // Check if the user has one of the allowed roles or is an allowed user
+        if (allowedRoleIDs.some(roleId => message.member.roles.cache.has(roleId)) || allowedUserIDs.includes(message.author.id)) {
             const response = message.content.split(' ').slice(1).join(' ');
             if (response) {
                 message.channel.send(response);
@@ -110,14 +109,14 @@ if (content === `${PREFIX}say` || content.startsWith(`${PREFIX}say `)) {
                 message.channel.send('Please provide a message.');
             }
         } else {
-            // Send an embedded message if the user is not allowed
             const embed = {
-                color: 0xFF0000, // Red color
+                color: 0xFF0000,
                 description: "Bhai ye tere liye nahi hai",
             };
             message.channel.send({ embeds: [embed] });
         }
     }
+                                  }
 }
 
     // Command: sayembed [embed colour] [title] [description]
